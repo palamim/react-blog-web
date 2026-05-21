@@ -1,14 +1,19 @@
-import {
-  BodySecondary,
-  H3,
-  LinkStyled,
-} from '@/atomic/atm.typography/typography';
+import { useLocation } from 'react-router-dom';
+import { H3 } from '@/atomic/atm.typography/typography';
 import SocialButtons from '@/atomic/mol.social/social.component';
 import { Row, Col } from '@/atomic/obj.grid/grid.style';
 import { Hbox } from '@/atomic/obj.hbox/hbox.component';
-import { HeaderMenu, HeaderMenuWrapper } from './header.component.style';
+import {
+  HeaderMenu,
+  HeaderMenuWrapper,
+  NavLink,
+} from './header.component.style';
 
 const Header = () => {
+  const { pathname } = useLocation();
+  const isHomeActive = pathname === '/';
+  const isBlogActive = pathname === '/blog' || pathname.startsWith('/blog/');
+
   return (
     <HeaderMenuWrapper>
       <HeaderMenu>
@@ -19,18 +24,18 @@ const Header = () => {
                 <H3>Palamim</H3>
               </Hbox.Item>
               <Hbox.Separator />
-              <Hbox.Item hAlign={'center'}>
+              <Hbox.Item hAlign={'center'} vAlign={'center'}>
                 <Hbox>
                   <Hbox.Item noGrow>
-                    <LinkStyled>
-                      <BodySecondary>Home</BodySecondary>
-                    </LinkStyled>
+                    <NavLink to={'/'} $isActive={isHomeActive}>
+                      Home
+                    </NavLink>
                   </Hbox.Item>{' '}
                   <Hbox.Separator />
                   <Hbox.Item noGrow>
-                    <LinkStyled>
-                      <BodySecondary>Blog</BodySecondary>
-                    </LinkStyled>
+                    <NavLink to={'/blog'} $isActive={isBlogActive}>
+                      Blog
+                    </NavLink>
                   </Hbox.Item>
                 </Hbox>
               </Hbox.Item>
