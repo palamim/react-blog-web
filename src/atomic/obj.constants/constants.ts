@@ -75,6 +75,7 @@ export enum Radius {
 export const Shadow = 'rgba(149, 157, 165, 0.2) 0px 8px 24px';
 
 export enum Spacing {
+  XXSmall = '2px',
   XSmall = '4px',
   Small = '12px',
   Medium = '16px',
