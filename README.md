@@ -1,16 +1,44 @@
-# React + Vite
+# Minimalist React Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean, lightweight personal blog engine built using raw React, Vite, and TypeScript. It compiles local Markdown files directly into your build for instant page transitions without backend database dependencies.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```text
+src/
+├── app/
+│   └── utils/
+│       ├── get-posts.ts      # Synchronous Markdown content parser
+│       └── format-date.ts    # Date formatting utility
+├── atomic/                   # UI Components & design tokens
+│   └── obj.post/
+│       ├── post.style.ts     # Markdown CSS typography rules
+│       └── post.types.ts     # TypeScript interfaces for frontmatter
+├── content/
+│   └── blog/                 # Article source files (.md)
+└── pages/
+    └── blog/
+        ├── blog.tsx          # Blog root
+        ├── blog-index.tsx    # Post list index view
+        └── blog-post.tsx     # Single article viewer page
+```
 
-## React Compiler
+## Creating a Post
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Articles live in /src/content/blog/. Use unquoted YYYY-MM-DD formatting for dates so they are natively parsed:
 
-## Expanding the ESLint configuration
+## YAML
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+title: 'Notes on starting to use Claude Code'
+description: 'First impressions switching to terminal-based tooling.'
+pubDate: 2026-04-28
+
+---
+
+Markdown content goes here. I can use inline HTML tags like <mark>highlight</mark>.
+
+## Core Setup Features
+
+Raw React Router: Uses native dynamic paths (blog/:slug) and layout nesting via <Outlet />.
+
+Static Content Delivery: Reads posts synchronously from the local directory at build time, eliminating loading spin screens and network waterfalls.
