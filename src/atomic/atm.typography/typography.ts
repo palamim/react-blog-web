@@ -11,13 +11,9 @@ import {
 } from '@/atomic/obj.constants/constants';
 
 export const H1 = styled.h1`
-  position: relative;
-  right: 30px;
-  z-index: 1;
   font-family: ${FontFamily.Primary};
-  font-size: ${FontSize.XLarge};
-  line-height: ${LineHeight.Large};
-  font-weight: ${FontWeight.Bold};
+  font-size: ${FontSize.XXLarge};
+  font-weight: ${FontWeight.Regular};
   color: ${Color.Black};
 `;
 
@@ -52,6 +48,7 @@ export const Body = styled.p`
 export const LinkStyled = styled.a`
   &:hover {
     cursor: pointer;
+    opacity: 0.8;
   }
 `;
 
