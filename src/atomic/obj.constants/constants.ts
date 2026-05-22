@@ -1,11 +1,16 @@
 export enum BrandColor {
   Orange = '#C2410C',
   DarkOrange = '#932A00',
+  LightOrange = '#FFE0B2',
 }
 
 export class Color {
   public static readonly Primary = BrandColor.Orange;
-  public static readonly Secondary = BrandColor.DarkOrange;
+
+  public static readonly DarkOrange = BrandColor.DarkOrange;
+  public static readonly LightOrange = BrandColor.LightOrange;
+
+  public static readonly Accessory = '#EEC1FD';
 
   public static readonly Black = '#160701';
   public static readonly White = '#FFFFFF';
@@ -53,7 +58,7 @@ export enum FontSize {
   Medium = '1.6rem',
   Large = '2rem',
   XLarge = '2.5rem',
-  XXLarge = '3.5rem',
+  XXLarge = '3.8rem',
 }
 
 export const HEADER_MENU_HEIGHT = '64px';
@@ -67,6 +72,7 @@ export enum LineHeight {
 }
 
 export enum Radius {
+  XXSmall = '2px',
   XSmall = '8px',
   Small = '10px',
   Large = '20px',
