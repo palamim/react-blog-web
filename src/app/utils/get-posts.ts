@@ -1,4 +1,4 @@
-import type { PostFrontmatter, Post } from '@/atomic/obj.post/blog-post.types';
+import type { PostFrontmatter, Post } from '@/atomic/obj.post/post.types';
 import matter from 'gray-matter';
 
 interface RawMarkdownModule {
