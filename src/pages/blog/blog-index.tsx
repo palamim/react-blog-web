@@ -1,19 +1,27 @@
-import { Fragment } from 'react';
-import { getPosts } from '@/app/utils/get-posts';
-import { Link } from 'react-router-dom';
-import { BodySecondary, H3 } from '@/atomic/atm.typography/typography';
+import { Fragment, useState, useEffect } from 'react';
+
+import { BodySecondary } from '@/atomic/atm.typography/typography';
 import { formatDate } from '@/app/utils/format-date';
-import { NavLink } from '@/atomic/org.header/header.component.style';
 import { PostLink } from '@/atomic/obj.post/post.style';
 import { Separator } from '@/atomic/atm.separator/separator.style';
+import type { Post } from '@/atomic/obj.post/post.types';
 
 export default function BlogIndex() {
-  const posts = getPosts();
-  const orderedPosts = posts.sort(
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/posts/`)
+      .then((res) => res.json())
+      .then((data) => setPosts(data))
+      .catch((err) => console.error('Error loading posts:', err));
+  }, []);
+
+  const orderedPosts = [...posts].sort(
     (a, b) =>
       new Date(b.frontmatter.pubDate).getTime() -
       new Date(a.frontmatter.pubDate).getTime(),
   );
+
   return orderedPosts.map((post) => (
     <Fragment key={post.slug}>
       <BodySecondary>{formatDate(post.frontmatter.pubDate)}</BodySecondary>
