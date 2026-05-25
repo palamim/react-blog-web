@@ -10,6 +10,7 @@ import Home from '@/pages/home';
 import Blog from './pages/blog/blog';
 import BlogPost from './pages/blog/blog-post';
 import BlogIndex from './pages/blog/blog-index';
+import Write from './pages/write';
 
 const RootLayout = () => (
   <ThemeProvider>
@@ -32,7 +33,7 @@ const ThemedApp = () => {
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootLayout />, // Wraps your entire app in Header/Footer/Styles
+    element: <RootLayout />,
     children: [
       {
         index: true, // Matches exactly '/'
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             element: <BlogPost />,
           },
         ],
+      },
+      {
+        path: 'write',
+        element: <Write />,
       },
     ],
   },
