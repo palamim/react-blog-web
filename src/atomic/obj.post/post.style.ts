@@ -21,7 +21,6 @@ export const PostLink = styled(RouterNavLink)`
   display: block;
   text-decoration: none;
   font-size: ${FontSize.Medium};
-  color: ${Color.Primary};
   &: hover {
     opacity: 0.8;
   }
@@ -32,7 +31,6 @@ export const Prose = styled.div`
   font-size: ${FontSize.Small};
   font-weight: ${FontWeight.Lighter};
   line-height: ${LineHeight.Medium};
-  color: ${Color.GrayXDark};
 
   /* Paragraph Spacing & Line Breaks */
   & p {

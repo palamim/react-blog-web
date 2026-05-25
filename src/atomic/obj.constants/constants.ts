@@ -12,17 +12,17 @@ export class Color {
 
   public static readonly Accessory = '#EEC1FD';
 
-  public static readonly Black = '#160701';
+  public static readonly Black = '#0c0c0c';
   public static readonly White = '#FFFFFF';
 
   public static readonly GrayXDark = '#222';
   public static readonly GrayDark = '#555';
   public static readonly Gray = '#BDBDBD';
-  public static readonly GrayLight = '#F1F1F1';
+  public static readonly GrayLight = '#E0E0E0';
   public static readonly GrayXLight = '#F9F9F9';
 
   public static readonly Background = '#FFFFFF80';
-  public static readonly DarkBackground = '#1a202c';
+  public static readonly DarkBackground = '#121212';
 }
 
 export const Border = {

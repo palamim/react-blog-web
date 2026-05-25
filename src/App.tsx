@@ -1,4 +1,6 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+
+import { ThemeProvider, useTheme } from '@/app/providers/theme.provider';
 import { GlobalStyle } from './atomic/obj.globals/global.style';
 import Header from './atomic/org.header/header.component';
 import Footer from './atomic/org.footer/footer.component';
@@ -10,13 +12,22 @@ import BlogPost from './pages/blog/blog-post';
 import BlogIndex from './pages/blog/blog-index';
 
 const RootLayout = () => (
-  <>
-    <GlobalStyle />
-    <Header />
-    <Outlet />
-    <Footer />
-  </>
+  <ThemeProvider>
+    <ThemedApp />
+  </ThemeProvider>
 );
+
+const ThemedApp = () => {
+  const { theme } = useTheme();
+  return (
+    <>
+      <GlobalStyle theme={theme} />
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
+};
 
 const router = createBrowserRouter([
   {

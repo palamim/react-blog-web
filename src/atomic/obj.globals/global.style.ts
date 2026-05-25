@@ -1,7 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 import { Breakpoint, Color } from '@/atomic/obj.constants/constants';
+import { Theme } from '@/app/providers/theme.provider';
 
-export const GlobalStyle = createGlobalStyle`
+export interface ThemedProps {
+  theme: Theme;
+}
+
+export const GlobalStyle = createGlobalStyle<ThemedProps>`
   * {
     box-sizing: border-box;
     margin: 0;
@@ -9,8 +14,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body{ 
-    background-color: ${Color.Background};
+    background-color: ${(props) => (props.theme == Theme.Light ? Color.Background : Color.DarkBackground)};
     font-family: 'Lora', serif;
+    color: ${(props) => (props.theme == Theme.Light ? Color.GrayXDark : Color.LightOrange)};
   }
 
   a {
