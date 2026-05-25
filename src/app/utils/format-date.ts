@@ -9,6 +9,5 @@ const formatter = new Intl.DateTimeFormat('en-US', {
   timeZone: 'UTC',
 });
 
-export const formatDate = (date: Date): string => {
-  return formatter.format(date);
-};
+export const formatDate = (dateString: string): string =>
+  formatter.format(new Date(dateString));

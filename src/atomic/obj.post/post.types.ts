@@ -1,7 +1,7 @@
 export interface PostFrontmatter {
   title: string;
   description: string;
-  pubDate: Date;
+  pubDate: string;
 }
 
 export interface Post {
