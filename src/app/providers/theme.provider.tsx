@@ -18,10 +18,14 @@ const ThemeContext = createContext<ThemeContextType>({
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState(Theme.Light);
+  const [theme, setTheme] = useState<Theme>(
+    (localStorage.getItem('userTheme') as Theme) || Theme.Light,
+  );
 
   const handleTheme = () => {
-    setTheme((prev) => (prev === Theme.Light ? Theme.Dark : Theme.Light));
+    const newTheme = theme === Theme.Light ? Theme.Dark : Theme.Light;
+    localStorage.setItem('userTheme', newTheme);
+    setTheme(newTheme);
   };
 
   return <ThemeContext value={{ theme, handleTheme }}>{children}</ThemeContext>;
