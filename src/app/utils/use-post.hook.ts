@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import matter from 'gray-matter';
 import type { Post } from '@/atomic/obj.post/post.types';
 
 export function useBlogPost(slug: string | undefined) {
@@ -14,20 +13,8 @@ export function useBlogPost(slug: string | undefined) {
     setError(null);
 
     fetch(`${import.meta.env.VITE_API_URL}/posts/${slug}.md`)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`Post not found (${res.status})`);
-        }
-        return res.text();
-      })
-      .then((rawText) => {
-        const { data, content } = matter(rawText);
-        setPost({
-          slug,
-          frontmatter: data as any,
-          content,
-        });
-      })
+      .then((res) => res.json())
+      .then((data) => setPost(data))
       .catch((err) => {
         console.error('Error loading markdown post:', err);
         setError(err);
