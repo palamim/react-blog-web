@@ -14,7 +14,6 @@ export const H1 = styled.h1`
   font-family: ${FontFamily.Primary};
   font-size: ${FontSize.XXLarge};
   font-weight: ${FontWeight.Regular};
-  color: ${Color.Black};
 `;
 
 export const H2 = styled.h2`
@@ -22,7 +21,6 @@ export const H2 = styled.h2`
   font-size: ${FontSize.Large};
   line-height: ${LineHeight.Large};
   font-weight: ${FontWeight.Bold};
-  color: ${Color.Black};
   font-size: ${FontSize.Large};
   margin: ${Spacing.Large} 0 ${Spacing.Medium};
 `;
@@ -33,7 +31,6 @@ export const H3 = styled.h3`
   line-height: ${LineHeight.Medium};
   font-weight: ${FontWeight.Regular};
   margin: ${Spacing.Medium} 0 ${Spacing.Small};
-  color: ${Color.Black};
 `;
 
 export const Body = styled.p`
@@ -41,7 +38,6 @@ export const Body = styled.p`
   font-size: ${FontSize.Small};
   font-weight: ${FontWeight.Lighter};
   line-height: ${LineHeight.Medium};
-  color: ${Color.GrayXDark};
   margin-bottom: 1em;
 `;
 
@@ -60,7 +56,7 @@ export const BodySecondary = styled.p<BodySecondaryProps>`
   font-family: ${FontFamily.Primary};
   font-size: ${FontSize.XXSmall};
   font-weight: ${FontWeight.Regular};
-  color: ${Color.GrayXDark};
+  color: ${Color.GrayDark};
   text-align: ${(props: BodySecondaryProps) => props.align || 'left'};
   display: inline;
   word-break: break-word;
