@@ -30,19 +30,19 @@ const Header = () => {
           <Row>
             <Col>
               <Hbox>
-                <Hbox.Item vAlign={'center'} noGrow>
+                <Hbox.Item $vAlign={'center'} $noGrow>
                   <H3>Palamim</H3>
                 </Hbox.Item>
                 <Hbox.Separator />
-                <Hbox.Item hAlign={'center'} vAlign={'center'}>
+                <Hbox.Item $hAlign={'center'} $vAlign={'center'}>
                   <Hbox>
-                    <Hbox.Item noGrow>
+                    <Hbox.Item $noGrow>
                       <NavLink to={'/'} $isActive={isHomeActive} theme={theme}>
                         Home
                       </NavLink>
                     </Hbox.Item>{' '}
                     <Hbox.Separator />
-                    <Hbox.Item noGrow>
+                    <Hbox.Item $noGrow>
                       <NavLink
                         to={'/blog'}
                         $isActive={isBlogActive}
@@ -54,7 +54,7 @@ const Header = () => {
                   </Hbox>
                 </Hbox.Item>
                 <Hbox.Separator />
-                <Hbox.Item vAlign={'center'} noGrow>
+                <Hbox.Item $vAlign={'center'} $noGrow>
                   <SocialButtons />
                 </Hbox.Item>
               </Hbox>

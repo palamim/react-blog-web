@@ -3,7 +3,7 @@ import { Spacing } from '@/atomic/obj.constants/constants';
 
 interface BoxProps {
   // src: https://www.w3schools.com/cssref/css3_pr_align-items.asp
-  hAlign?:
+  $hAlign?:
     | 'stretch'
     | 'center'
     | 'flex-start'
@@ -12,7 +12,7 @@ interface BoxProps {
     | 'initial'
     | 'inherit';
   // src: https://www.w3schools.com/cssref/css3_pr_justify-content.asp
-  vAlign?:
+  $vAlign?:
     | 'flex-start'
     | 'flex-end'
     | 'center'
@@ -23,14 +23,14 @@ interface BoxProps {
 }
 
 export interface HboxProps extends BoxProps {
-  noGrow?: boolean;
+  $noGrow?: boolean;
 }
 
 const HboxStyled = styled.div<HboxProps>`
   display: flex;
   align-content: flex-start;
   justify-content: ${(props: HboxProps) =>
-    props.vAlign ? props.vAlign : 'flex-start'};
+    props.$vAlign ? props.$vAlign : 'flex-start'};
 `;
 
 export const Hbox: any = HboxStyled;
@@ -39,11 +39,11 @@ Hbox.displayName = 'Hbox';
 Hbox.Item = styled.div<HboxProps>`
   flex-direction: column;
   display: flex;
-  ${(props: HboxProps) => (!props.noGrow ? 'flex: 1' : null)};
+  ${(props: HboxProps) => (!props.$noGrow ? 'flex: 1' : null)};
   justify-content: ${(props: HboxProps) =>
-    props.vAlign ? props.vAlign : 'flex-start'};
+    props.$vAlign ? props.$vAlign : 'flex-start'};
   align-items: ${(props: HboxProps) =>
-    props.hAlign ? props.hAlign : 'stretch'};
+    props.$hAlign ? props.$hAlign : 'stretch'};
 `;
 Hbox.Item.displayName = 'Hbox.Item';
 

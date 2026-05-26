@@ -8,7 +8,7 @@ import { Separator } from '@/atomic/atm.separator/separator.style';
 const Home = () => (
   <Container>
     <Hbox>
-      <Hbox.Item hAlign={'center'}>
+      <Hbox.Item $hAlign={'center'}>
         <Image src={profileImage} width={240} height={240} alt={'Palamim'} />
       </Hbox.Item>
     </Hbox>
